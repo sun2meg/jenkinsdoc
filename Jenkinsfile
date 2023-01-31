@@ -4,12 +4,12 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker-sony')
+    DOCKERHUB_CREDENTIALS = credentials('docker')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t sun2meg/jenkins-docker .'
+        sh 'docker build -t sun2meg/jenkinsdocker .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push sun2meg/jenkins-docker'
+        sh 'docker push sun2meg/jenkinsdocker'
       }
     }
   }
