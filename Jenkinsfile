@@ -4,7 +4,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('Docker')
+    DOCKERHUB_CREDENTIALS = credentials('docker-sony')
   }
   stages {
     stage('Build') {
